@@ -1,22 +1,18 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
+import ColorPicker from "./components/ColorPicker";
+
 import "./App.css";
 
 function App() {
+  const [color, setColor] = useState("#FFF");
+  const handleColorChange = c => {
+    console.log(c);
+    setColor(c.rgb);
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ColorPicker color={color} onChange={handleColorChange} />
         <h1 className="text-3xl font-bold underline">Hello world!</h1>
       </header>
     </div>
